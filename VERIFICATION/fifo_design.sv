@@ -94,6 +94,7 @@ begin : STATUS_COUNTER
 end
 
 ram_dp_ar_aw #(DATA_WIDTH,ADDR_WIDTH) DP_RAM (
+.clk(clk),
 .address_0 (wr_pointer) , // address_0 input
 .data_0    (data_in)    , // data_0 bi-directional
 .cs_0      (wr_cs)      , // chip select

@@ -1,24 +1,26 @@
 # vsim -c tb_top 
-# Start time: 09:03:33 on Aug 08,2026
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-8637) fifo_monitor.sv(38): A modport ('MON') should not be used in a hierarchical path.
-# ** Warning: (vopt-8637) fifo_monitor.sv(38): A modport ('MON') should not be used in a hierarchical path.
-# ** Warning: (vopt-8637) fifo_monitor.sv(39): A modport ('MON') should not be used in a hierarchical path.
-# ** Warning: (vopt-8637) fifo_monitor.sv(39): A modport ('MON') should not be used in a hierarchical path.
-# ** Warning: (vopt-8637) fifo_monitor.sv(40): A modport ('MON') should not be used in a hierarchical path.
-# ** Warning: (vopt-8637) fifo_monitor.sv(40): A modport ('MON') should not be used in a hierarchical path.
+# Start time: 15:54:13 on Aug 14,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: (vopt-8637) fifo_monitor.sv(41): A modport ('MON') should not be used in a hierarchical path.
 # ** Warning: (vopt-8637) fifo_monitor.sv(41): A modport ('MON') should not be used in a hierarchical path.
 # ** Warning: (vopt-8637) fifo_monitor.sv(42): A modport ('MON') should not be used in a hierarchical path.
 # ** Warning: (vopt-8637) fifo_monitor.sv(42): A modport ('MON') should not be used in a hierarchical path.
+# ** Warning: (vopt-8637) fifo_monitor.sv(43): A modport ('MON') should not be used in a hierarchical path.
+# ** Warning: (vopt-8637) fifo_monitor.sv(43): A modport ('MON') should not be used in a hierarchical path.
 # ** Warning: (vopt-8637) fifo_monitor.sv(44): A modport ('MON') should not be used in a hierarchical path.
 # ** Warning: (vopt-8637) fifo_monitor.sv(44): A modport ('MON') should not be used in a hierarchical path.
 # ** Warning: (vopt-8637) fifo_monitor.sv(45): A modport ('MON') should not be used in a hierarchical path.
 # ** Warning: (vopt-8637) fifo_monitor.sv(45): A modport ('MON') should not be used in a hierarchical path.
 # ** Warning: (vopt-8637) fifo_monitor.sv(46): A modport ('MON') should not be used in a hierarchical path.
 # ** Warning: (vopt-8637) fifo_monitor.sv(46): A modport ('MON') should not be used in a hierarchical path.
-# ** Warning: fifo_design.sv(96): (vopt-2685) [TFMPC] - Too few port connections for 'DP_RAM'.  Expected 11, found 10.
-# ** Warning: fifo_design.sv(96): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: (vopt-8637) fifo_monitor.sv(47): A modport ('MON') should not be used in a hierarchical path.
+# ** Warning: (vopt-8637) fifo_monitor.sv(47): A modport ('MON') should not be used in a hierarchical path.
+# ** Warning: (vopt-8637) fifo_monitor.sv(48): A modport ('MON') should not be used in a hierarchical path.
+# ** Warning: (vopt-8637) fifo_monitor.sv(48): A modport ('MON') should not be used in a hierarchical path.
+# ** Warning: (vopt-8637) fifo_monitor.sv(49): A modport ('MON') should not be used in a hierarchical path.
+# ** Warning: (vopt-8637) fifo_monitor.sv(49): A modport ('MON') should not be used in a hierarchical path.
+# ** Warning: (vopt-8637) fifo_monitor.sv(50): A modport ('MON') should not be used in a hierarchical path.
+# ** Warning: (vopt-8637) fifo_monitor.sv(50): A modport ('MON') should not be used in a hierarchical path.
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -40,22 +42,22 @@
 # Loading work.fifo_top_sv_unit(fast)
 # Loading work.tb_top(fast)
 # Loading mtiUvm.questa_uvm_pkg(fast)
-# ** Warning: (vsim-8637) fifo_monitor.sv(37): A modport ('MON') should not be used in a hierarchical path.
-#    Time: 0 ps  Iteration: 0  Region: /fifo_tst_pkg File: fifo_tst_pkg.sv
-# ** Warning: (vsim-8637) fifo_driver.sv(31): A modport ('DRV') should not be used in a hierarchical path.
-#    Time: 0 ps  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
+# ** Warning: (vsim-8637) fifo_monitor.sv(41): A modport ('MON') should not be used in a hierarchical path.
+#    Time: 0 ns  Iteration: 0  Region: /fifo_tst_pkg File: fifo_tst_pkg.sv
 # ** Warning: (vsim-8637) fifo_driver.sv(32): A modport ('DRV') should not be used in a hierarchical path.
-#    Time: 0 ps  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
+#    Time: 0 ns  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
 # ** Warning: (vsim-8637) fifo_driver.sv(33): A modport ('DRV') should not be used in a hierarchical path.
-#    Time: 0 ps  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
+#    Time: 0 ns  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
 # ** Warning: (vsim-8637) fifo_driver.sv(34): A modport ('DRV') should not be used in a hierarchical path.
-#    Time: 0 ps  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
+#    Time: 0 ns  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
 # ** Warning: (vsim-8637) fifo_driver.sv(35): A modport ('DRV') should not be used in a hierarchical path.
-#    Time: 0 ps  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
+#    Time: 0 ns  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
 # ** Warning: (vsim-8637) fifo_driver.sv(36): A modport ('DRV') should not be used in a hierarchical path.
-#    Time: 0 ps  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
+#    Time: 0 ns  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
 # ** Warning: (vsim-8637) fifo_driver.sv(37): A modport ('DRV') should not be used in a hierarchical path.
-#    Time: 0 ps  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
+#    Time: 0 ns  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
+# ** Warning: (vsim-8637) fifo_driver.sv(38): A modport ('DRV') should not be used in a hierarchical path.
+#    Time: 0 ns  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
 # Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
 # ----------------------------------------------------------------
 # UVM-1.1d
@@ -79,49 +81,80 @@
 # 
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
-# UVM_INFO @ 0: reporter [RNTST] Running test test1...
+# UVM_INFO @ 0: reporter [RNTST] Running test test2...
 # UVM_INFO fifo_test.sv(16) @ 0: uvm_test_top [TOPOLOGY] Displaying UVM Testbench Topology:
 # UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
-# --------------------------------------------------------------
-# Name                       Type                    Size  Value
-# --------------------------------------------------------------
-# uvm_test_top               test1                   -     @471 
-#   env                      fifo_env                -     @478 
-#     agnt                   fifo_agent              -     @485 
-#       drv                  fifo_driver             -     @602 
-#         rsp_port           uvm_analysis_port       -     @617 
-#         seq_item_port      uvm_seq_item_pull_port  -     @609 
-#       mon                  fifo_monitor            -     @625 
-#         mon_port           uvm_analysis_port       -     @633 
-#       sqr                  fifo_sequencer          -     @493 
-#         rsp_export         uvm_analysis_export     -     @500 
-#         seq_item_export    uvm_seq_item_pull_imp   -     @594 
-#         arbitration_queue  array                   0     -    
-#         lock_queue         array                   0     -    
-#         num_last_reqs      integral                32    'd1  
-#         num_last_rsps      integral                32    'd1  
-# --------------------------------------------------------------
+# ------------------------------------------------------------------
+# Name                       Type                        Size  Value
+# ------------------------------------------------------------------
+# uvm_test_top               test2                       -     @471 
+#   env                      fifo_env                    -     @478 
+#     agnt                   fifo_agent                  -     @485 
+#       drv                  fifo_driver                 -     @656 
+#         rsp_port           uvm_analysis_port           -     @671 
+#         seq_item_port      uvm_seq_item_pull_port      -     @663 
+#       mon                  fifo_monitor                -     @679 
+#         mon_port           uvm_analysis_port           -     @687 
+#       sqr                  fifo_sequencer              -     @547 
+#         rsp_export         uvm_analysis_export         -     @554 
+#         seq_item_export    uvm_seq_item_pull_imp       -     @648 
+#         arbitration_queue  array                       0     -    
+#         lock_queue         array                       0     -    
+#         num_last_reqs      integral                    32    'd1  
+#         num_last_rsps      integral                    32    'd1  
+#     scr                    fifo_scoreboard             -     @492 
+#       in_fifo              uvm_tlm_analysis_fifo #(T)  -     @499 
+#         analysis_export    uvm_analysis_imp            -     @538 
+#         get_ap             uvm_analysis_port           -     @530 
+#         get_peek_export    uvm_get_peek_imp            -     @514 
+#         put_ap             uvm_analysis_port           -     @522 
+#         put_export         uvm_put_imp                 -     @506 
+# ------------------------------------------------------------------
 # 
-# UVM_INFO fifo_test.sv(32) @ 0: uvm_test_top [TEST] Starting FIFO Reset Test
-# UVM_WARNING @ 0: uvm_test_top.env.agnt.sqr@@seq1 [uvm_sequence_base] Body definition undefined
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 50: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO fifo_test.sv(50) @ 0: uvm_test_top [TEST2] Starting FIFO write Test
+# UVM_INFO fifo_monitor.sv(34) @ 5: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:x rd_en:x data_in:0xx data_out:0xx full:x empty:x
+# UVM_INFO fifo_monitor.sv(34) @ 15: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:1 wr_en:0 rd_en:0 data_in:0x0 data_out:0x0 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 25: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x0 data_out:0x0 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 35: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xa9 data_out:0x0 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 45: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x32 data_out:0xx full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(120) @ 45: uvm_test_top.env.scr [Scoreboard] MISSMATCH :::::::::: Exp_out:a9 | Data_out:xx :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 55: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xd6 data_out:0x32 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 55: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:32 | Data_out:32 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 65: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x5e data_out:0xd6 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 65: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:d6 | Data_out:d6 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 75: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x5e data_out:0x5e full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 75: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:5e | Data_out:5e :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 85: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x5e data_out:0x5e full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 85: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:5e | Data_out:5e :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 95: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x5e data_out:0x5e full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 95: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:5e | Data_out:5e :::::::::: 
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 105: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO fifo_scoreboard.sv(142) @ 105: uvm_test_top.env.scr [Scoreboard] 
+# =========================================
+#   FINAL SCOREBOARD SUMMARY
+#   TOTAL PASSED : 5
+#   TOTAL FAILED : 1
+#  TOTAL PASS_FLAG :17 
+#  TOTAL FAIL_FLAG :0 
+# =========================================
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :    7
-# UVM_WARNING :    1
+# UVM_INFO :   24
+# UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
 # ** Report counts by id
+# [MON]    10
 # [Questa UVM]     2
 # [RNTST]     1
-# [TEST]     1
+# [Scoreboard]     7
+# [TEST2]     1
 # [TEST_DONE]     1
 # [TOPOLOGY]     1
 # [UVMTOP]     1
-# [uvm_sequence_base]     1
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 50 ps  Iteration: 54  Instance: /tb_top
-# End time: 09:03:39 on Aug 08,2026, Elapsed time: 0:00:06
-# Errors: 0, Warnings: 26
+#    Time: 105 ns  Iteration: 54  Instance: /tb_top
+# End time: 15:54:17 on Aug 14,2026, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 28

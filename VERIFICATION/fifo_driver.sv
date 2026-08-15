@@ -22,7 +22,8 @@ class fifo_driver extends uvm_driver#(fifo_transaction);
 	task run_phase(uvm_phase phase);
 		forever begin
 			seq_item_port.get_next_item(req);
-			drive(req);
+			/*`uvm_info("DRV", $sformatf("DRIVING ->rst:%0b wr_cs:%0b wr_en:%0b rd_cs:%0b rd_en:%0b data_in:0x%0h/n",req.rst, req.wr_cs, req.wr_en, req.rd_cs, req.rd_en, req.data_in),UVM_LOW)
+		*/	drive(req);
 			seq_item_port.item_done();
 		end
 	endtask

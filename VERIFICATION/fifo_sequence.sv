@@ -16,10 +16,10 @@ class fifo_rst extends fifo_sequence;
 	endfunction
 
 
-	task build();
+	task body();
 		//`uvm_info(
 		//start of reset sequence
-		for(int i=0;i<$urandom_range(5,10);i++)begin
+		for(int i=0;i<1/*$urandom_range(5,10)*/;i++)begin
 			req=fifo_transaction::type_id::create("req");
 			start_item(req);
 			assert(req.randomize() with {
@@ -28,6 +28,7 @@ class fifo_rst extends fifo_sequence;
 				rd_cs==1'b0;
 				wr_en==1'b0;
 				rd_en==1'b0;
+				data_in == 'b0;
 			})
 			else 
 				`uvm_fatal("fifo_rst","rst assertion failed")
@@ -43,6 +44,7 @@ class fifo_rst extends fifo_sequence;
 			rd_en==1'b0;
 			wr_cs==1'b0;
 			rd_cs==1'b0;
+			data_in == 'b0;
 		})
 		else 
 			`uvm_fatal("fifo_rst","rst deassertion failed")
@@ -57,7 +59,7 @@ class fifo_write extends fifo_sequence;
 	endfunction
 
 	task body();
-		for(int i=0;i<$urandom_range(5,10);i++)
+		for(int i=0;i<(`DEPTH+1000);i++)
 		begin
 			req=fifo_transaction::type_id::create("req");
 			start_item(req);
@@ -65,8 +67,8 @@ class fifo_write extends fifo_sequence;
 				rst==1'b0;
 				wr_cs==1'b1;
 				wr_en==1'b1;
-				rd_cs==1'b0;
-				rd_en==1'b0;
+				rd_cs==1'b1;
+				rd_en==1'b1;
 			})
 			else 
 				`uvm_fatal("fifo_write","write randomization failed")
@@ -83,7 +85,7 @@ class fifo_read extends fifo_sequence;
 	endfunction
 
 	task body();
-		for(int i=0;i<$urandom_range(5,10);i++)
+		for(int i=0;i<(`DEPTH+1000);i++)
 		begin
 			req=fifo_transaction::type_id::create("req");
 			start_item(req);
@@ -93,6 +95,7 @@ class fifo_read extends fifo_sequence;
 				wr_en==1'b0;
 				rd_cs==1'b1;
 				rd_en==1'b1;
+				data_in=='b0;
 			})
 			else 
 				`uvm_fatal("fifo_read","read randomization failed")

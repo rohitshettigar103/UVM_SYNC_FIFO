@@ -1,5 +1,5 @@
 
-`timescale 1ns/1ps
+//`timescale 1ns/1ps
 
 `include "uvm_macros.svh"
 `include "fifo_defines.svh"
@@ -38,7 +38,7 @@ module tb_top;
 
   initial begin
     uvm_config_db#(virtual fifo_inf)::set(null, "*", "fifo_inf", vif);
-    run_test("test1");
+    run_test("test2");
  end
 
 endmodule
