@@ -38,7 +38,7 @@ module tb_top;
 
   initial begin
     uvm_config_db#(virtual fifo_inf)::set(null, "*", "fifo_inf", vif);
-    run_test("test2");
+    run_test("test3");
  end
 
 endmodule

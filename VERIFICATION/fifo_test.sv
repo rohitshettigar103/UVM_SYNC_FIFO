@@ -72,6 +72,7 @@ class test3 extends fifo_test;
 		fifo_read seq3;
 		fifo_rst seq1;
 		fifo_write seq2;
+		fifo_read_write seq4;
 		phase.raise_objection(this);
 		`uvm_info("TEST3", "Starting FIFO read test", UVM_LOW)
 		seq1=fifo_rst::type_id::create("seq1");
@@ -82,6 +83,9 @@ class test3 extends fifo_test;
 
 		seq3=fifo_read::type_id::create("seq3");
 		seq3.start(env.agnt.sqr);
+		
+		seq4=fifo_read_write::type_id::create("seq4");
+		seq4.start(env.agnt.sqr);
 		#50;
 		phase.drop_objection(this);
 	endtask
