@@ -2,6 +2,7 @@ var g_data = {'dummy':null,
 '4':'fifo_design.sv',
 '1':'fifo_interface.sv',
 '5':'fifo_sequence.sv',
+'6':'fifo_subscriber.sv',
 '2':'fifo_top.sv',
-'6':'fifo_tst_pkg.sv',
+'7':'fifo_tst_pkg.sv',
 '3':'ram_fifo.sv'};

@@ -65,11 +65,11 @@ class fifo_write extends fifo_sequence;
 			start_item(req);
 			assert(req.randomize() with {
 				rst==1'b0;
-				wr_cs==1'b1;
+		/*		wr_cs==1'b1;
 				wr_en==1'b1;
 				rd_cs==1'b0;
 				rd_en==1'b0;
-			})
+		*/	})
 			else 
 				`uvm_fatal("fifo_write","write randomization failed")
 			finish_item(req);
@@ -91,12 +91,12 @@ class fifo_read extends fifo_sequence;
 			start_item(req);
 			assert(req.randomize() with {
 				rst==1'b0;
-				wr_cs==1'b0;
+		/*		wr_cs==1'b0;
 				wr_en==1'b0;
 				rd_cs==1'b1;
 				rd_en==1'b1;
 				data_in=='b0;
-			})
+		*/	})
 			else 
 				`uvm_fatal("fifo_read","read randomization failed")
 			finish_item(req);
@@ -119,12 +119,12 @@ class fifo_read_write extends fifo_sequence;
 			start_item(req);
 			assert(req.randomize() with {
 				rst==1'b0;
-				wr_cs==1'b1;
+		/*		wr_cs==1'b1;
 				wr_en==1'b1;
 				rd_cs==1'b1;
 				rd_en==1'b1;
 				//data_in=='b0;
-			})
+		*/	})
 			else 
 				`uvm_fatal("fifo_read","read randomization failed")
 			finish_item(req);

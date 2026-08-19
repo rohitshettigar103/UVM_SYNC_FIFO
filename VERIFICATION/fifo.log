@@ -1,5 +1,5 @@
-# vsim -vopt work.tb_top -voptargs="+acc=npr" -assertdebug -l fifo.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll fifo.ucdb; run -all; exit" 
-# Start time: 18:15:17 on Aug 15,2026
+# vsim -vopt work.tb_top -voptargs="+acc=npr" -assertdebug -l fifo.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAl fifo.ucdb; run -all; exit" 
+# Start time: 20:30:09 on Aug 15,2026
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: (vopt-8637) fifo_monitor.sv(41): A modport ('MON') should not be used in a hierarchical path.
 # ** Warning: (vopt-8637) fifo_monitor.sv(41): A modport ('MON') should not be used in a hierarchical path.
@@ -62,7 +62,7 @@
 # ** Warning: (vsim-8637) fifo_driver.sv(38): A modport ('DRV') should not be used in a hierarchical path.
 #    Time: 0 ns  Iteration: 0  Region: /fifo_tst_pkg::fifo_driver File: fifo_tst_pkg.sv
 # Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
-# coverage save -onexit -assert -directive -cvg -codeAll fifo.ucdb
+# coverage save -onexit -assert -directive -cvg -codeAl fifo.ucdb
 #  run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
@@ -95,14 +95,14 @@
 # uvm_test_top               test3                       -     @471 
 #   env                      fifo_env                    -     @478 
 #     agnt                   fifo_agent                  -     @485 
-#       drv                  fifo_driver                 -     @656 
-#         rsp_port           uvm_analysis_port           -     @671 
-#         seq_item_port      uvm_seq_item_pull_port      -     @663 
-#       mon                  fifo_monitor                -     @679 
-#         mon_port           uvm_analysis_port           -     @687 
-#       sqr                  fifo_sequencer              -     @547 
-#         rsp_export         uvm_analysis_export         -     @554 
-#         seq_item_export    uvm_seq_item_pull_imp       -     @648 
+#       drv                  fifo_driver                 -     @671 
+#         rsp_port           uvm_analysis_port           -     @686 
+#         seq_item_port      uvm_seq_item_pull_port      -     @678 
+#       mon                  fifo_monitor                -     @694 
+#         mon_port           uvm_analysis_port           -     @702 
+#       sqr                  fifo_sequencer              -     @562 
+#         rsp_export         uvm_analysis_export         -     @569 
+#         seq_item_export    uvm_seq_item_pull_imp       -     @663 
 #         arbitration_queue  array                       0     -    
 #         lock_queue         array                       0     -    
 #         num_last_reqs      integral                    32    'd1  
@@ -114,6 +114,8 @@
 #         get_peek_export    uvm_get_peek_imp            -     @514 
 #         put_ap             uvm_analysis_port           -     @522 
 #         put_export         uvm_put_imp                 -     @506 
+#     sub                    fifo_subscriber             -     @546 
+#       analysis_imp         uvm_analysis_imp            -     @553 
 # ------------------------------------------------------------------
 # 
 # UVM_INFO fifo_test.sv(77) @ 0: uvm_test_top [TEST3] Starting FIFO read test
@@ -126,246 +128,318 @@
 # UVM_INFO fifo_monitor.sv(34) @ 65: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x0 data_out:0x0 full:0 empty:1
 # UVM_INFO fifo_monitor.sv(34) @ 75: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa9 data_out:0x0 full:0 empty:1
 # UVM_INFO fifo_monitor.sv(34) @ 85: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x32 data_out:0x0 full:0 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 95: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xd6 data_out:0x0 full:0 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 105: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x5e data_out:0x0 full:0 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 115: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x20 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 125: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x72 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 135: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xf0 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 145: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa3 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 155: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x81 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 165: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa8 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 175: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xef data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 185: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x36 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 195: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x21 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 205: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xf8 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 215: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x37 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 225: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x9 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 235: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x2a data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 245: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x9e data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 255: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x3b data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 265: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x4b data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 275: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xf7 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 285: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x5 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 295: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x76 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 305: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xab data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 315: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x29 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 325: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x8c data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 335: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x81 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 345: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x18 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 355: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xe4 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 365: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x34 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 375: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x25 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 385: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xb5 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 395: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x63 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 405: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x84 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 415: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x5f data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 425: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x5 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 435: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xf5 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 445: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x15 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 455: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xe6 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 465: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x54 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 475: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x92 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 485: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xb8 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 495: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x35 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 505: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xc7 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 515: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x2a data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 525: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x63 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 535: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x6d data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 545: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x1c data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 555: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa3 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 565: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x60 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 575: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x45 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 585: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xc5 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 595: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x95 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 605: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x45 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 615: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa5 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 625: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x4e data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 635: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xd4 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 645: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x7f data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 655: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x6e data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 665: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xbe data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 675: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xb3 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 685: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xb9 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 695: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x6 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 705: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa2 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 715: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x30 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 725: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xe data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 735: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x7a data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 745: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x5c data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 755: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x9c data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 765: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xb1 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 775: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xb0 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 785: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x1e data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 795: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xfe data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 805: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x80 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 815: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x7a data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 825: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x47 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 835: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xf2 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 845: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x9e data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 855: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x3d data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 865: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x2b data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 875: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xbd data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 885: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xc6 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 895: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xcd data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 905: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa6 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 915: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x23 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 925: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xdb data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 935: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xcd data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 945: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xac data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 955: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa9 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 965: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xd2 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 975: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x67 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 985: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xee data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 995: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x76 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1005: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x92 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1015: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x1a data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1025: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x64 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1035: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x8 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1045: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x5f data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1055: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x13 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1065: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x91 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1075: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xc8 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1085: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x5f data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1095: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x18 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1105: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xd5 data_out:0x0 full:1 empty:0
-# UVM_INFO fifo_monitor.sv(34) @ 1115: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0xd5 full:1 empty:0
-# UVM_INFO fifo_scoreboard.sv(120) @ 1115: uvm_test_top.env.scr [Scoreboard] MISSMATCH :::::::::: Exp_out:a9 | Data_out:d5 :::::::::: 
-# UVM_INFO fifo_monitor.sv(34) @ 1125: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x32 full:0 empty:0
-# UVM_INFO fifo_scoreboard.sv(114) @ 1125: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:32 | Data_out:32 :::::::::: 
-# UVM_INFO fifo_monitor.sv(34) @ 1135: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0xd6 full:0 empty:0
-# UVM_INFO fifo_scoreboard.sv(114) @ 1135: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:d6 | Data_out:d6 :::::::::: 
-# UVM_INFO fifo_monitor.sv(34) @ 1145: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:0
-# UVM_INFO fifo_scoreboard.sv(114) @ 1145: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:5e | Data_out:5e :::::::::: 
-# UVM_INFO fifo_monitor.sv(34) @ 1155: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1165: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1175: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1185: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1195: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1205: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1215: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1225: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1235: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1245: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1255: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1265: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1275: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1285: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1295: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1305: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1315: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1325: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1335: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1345: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1355: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1365: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1375: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1385: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1395: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1405: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1415: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1425: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1435: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1445: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1455: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1465: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1475: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1485: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1495: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1505: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1515: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1525: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1535: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1545: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1555: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1565: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1575: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1585: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1595: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1605: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1615: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1625: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1635: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1645: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1655: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1665: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1675: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1685: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1695: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1705: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1715: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1725: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1735: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1745: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1755: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1765: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1775: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1785: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1795: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1805: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1815: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1825: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1835: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1845: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1855: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1865: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1875: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1885: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1895: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1905: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1915: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1925: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1935: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1945: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1955: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1965: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1975: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1985: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 1995: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2005: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2015: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2025: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2035: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2045: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2055: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2065: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2075: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2085: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2095: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2105: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2115: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2125: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2135: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2145: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2155: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x0 data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2165: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x2f data_out:0x5e full:0 empty:1
-# UVM_INFO fifo_monitor.sv(34) @ 2175: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xf1 data_out:0xd5 full:0 empty:0
-# UVM_INFO fifo_scoreboard.sv(120) @ 2175: uvm_test_top.env.scr [Scoreboard] MISSMATCH :::::::::: Exp_out:2f | Data_out:d5 :::::::::: 
-# UVM_INFO fifo_monitor.sv(34) @ 2185: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xeb data_out:0xf1 full:0 empty:0
-# UVM_INFO fifo_scoreboard.sv(114) @ 2185: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:f1 | Data_out:f1 :::::::::: 
-# UVM_INFO fifo_monitor.sv(34) @ 2195: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x92 data_out:0xeb full:0 empty:0
-# UVM_INFO fifo_scoreboard.sv(114) @ 2195: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:eb | Data_out:eb :::::::::: 
-# UVM_INFO fifo_monitor.sv(34) @ 2205: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xb1 data_out:0x92 full:0 empty:0
-# UVM_INFO fifo_scoreboard.sv(114) @ 2205: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:92 | Data_out:92 :::::::::: 
-# UVM_INFO fifo_monitor.sv(34) @ 2215: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xb1 data_out:0xb1 full:0 empty:0
-# UVM_INFO fifo_scoreboard.sv(114) @ 2215: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:b1 | Data_out:b1 :::::::::: 
-# UVM_INFO fifo_monitor.sv(34) @ 2225: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xb1 data_out:0xb1 full:0 empty:0
-# UVM_INFO fifo_scoreboard.sv(114) @ 2225: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:b1 | Data_out:b1 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 95: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xd6 data_out:0x0 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 105: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x5e data_out:0x0 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 115: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x20 data_out:0xa9 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 115: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:a9 | Data_out:a9 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 125: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x72 data_out:0x32 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 125: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:32 | Data_out:32 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 135: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xf0 data_out:0x32 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 145: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xa3 data_out:0xx full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(120) @ 145: uvm_test_top.env.scr [Scoreboard] MISSMATCH :::::::::: Exp_out:f0 | Data_out:xx :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 155: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x81 data_out:0xx full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 165: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa8 data_out:0xx full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 175: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xef data_out:0xx full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 185: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x36 data_out:0x81 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 185: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:81 | Data_out:81 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 195: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x21 data_out:0x81 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 205: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xf8 data_out:0x81 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 215: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x37 data_out:0x81 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 225: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x9 data_out:0xa8 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 225: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:a8 | Data_out:a8 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 235: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x2a data_out:0xa8 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 245: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x9e data_out:0xa8 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 255: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x3b data_out:0xef full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 255: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:ef | Data_out:ef :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 265: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x4b data_out:0xef full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 275: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xf7 data_out:0xef full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 285: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x5 data_out:0xef full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 295: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x76 data_out:0xef full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 305: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xab data_out:0xef full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 315: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x29 data_out:0xab full:1 empty:0
+# UVM_INFO fifo_scoreboard.sv(120) @ 315: uvm_test_top.env.scr [Scoreboard] MISSMATCH :::::::::: Exp_out:36 | Data_out:ab :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 325: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x8c data_out:0x2a full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 325: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:2a | Data_out:2a :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 335: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x81 data_out:0x2a full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 345: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x18 data_out:0xf7 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 345: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:f7 | Data_out:f7 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 355: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xe4 data_out:0xf7 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 365: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x34 data_out:0xf7 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 375: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x25 data_out:0x76 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 375: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:76 | Data_out:76 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 385: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xb5 data_out:0x8c full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 385: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:8c | Data_out:8c :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 395: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x63 data_out:0x25 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 395: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:25 | Data_out:25 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 405: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x84 data_out:0x25 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 415: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x5f data_out:0x25 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 425: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x5 data_out:0x25 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 435: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xf5 data_out:0xb5 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 435: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:b5 | Data_out:b5 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 445: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x15 data_out:0xb5 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 455: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xe6 data_out:0x63 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 455: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:63 | Data_out:63 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 465: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x54 data_out:0x5f full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 465: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:5f | Data_out:5f :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 475: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x92 data_out:0x5f full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 485: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xb8 data_out:0xe6 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 485: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:e6 | Data_out:e6 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 495: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x35 data_out:0xe6 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 505: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xc7 data_out:0xe6 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 515: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x2a data_out:0xe6 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 525: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x63 data_out:0xe6 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 535: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x6d data_out:0xe6 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 545: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x1c data_out:0xe6 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 555: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa3 data_out:0xe6 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 565: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x60 data_out:0xe6 full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 575: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x45 data_out:0xe6 full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 585: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xc5 data_out:0x45 full:1 empty:0
+# UVM_INFO fifo_scoreboard.sv(120) @ 585: uvm_test_top.env.scr [Scoreboard] MISSMATCH :::::::::: Exp_out:35 | Data_out:45 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 595: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x95 data_out:0x63 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 595: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:63 | Data_out:63 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 605: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x45 data_out:0x63 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 615: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xa5 data_out:0x1c full:1 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 615: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:1c | Data_out:1c :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 625: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x4e data_out:0xa3 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 625: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:a3 | Data_out:a3 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 635: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xd4 data_out:0x95 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 635: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:95 | Data_out:95 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 645: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x7f data_out:0x95 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 655: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x6e data_out:0x45 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 655: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:45 | Data_out:45 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 665: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xbe data_out:0x45 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 675: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xb3 data_out:0xbe full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 675: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:be | Data_out:be :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 685: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xb9 data_out:0xbe full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 695: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x6 data_out:0xbe full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 705: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa2 data_out:0xbe full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 715: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x30 data_out:0xbe full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 725: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xe data_out:0xb9 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 725: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:b9 | Data_out:b9 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 735: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x7a data_out:0x6 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 735: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:06 | Data_out:06 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 745: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x5c data_out:0x6 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 755: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x9c data_out:0x6 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 765: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xb1 data_out:0x6 full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 775: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xb0 data_out:0x6 full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 785: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x1e data_out:0x6 full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 795: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xfe data_out:0x6 full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 805: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x80 data_out:0x6 full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 815: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x7a data_out:0x80 full:1 empty:0
+# UVM_INFO fifo_scoreboard.sv(120) @ 815: uvm_test_top.env.scr [Scoreboard] MISSMATCH :::::::::: Exp_out:a2 | Data_out:80 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 825: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x47 data_out:0xe full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 825: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:0e | Data_out:0e :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 835: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xf2 data_out:0xe full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 845: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x9e data_out:0xe full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 855: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x3d data_out:0x7a full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 855: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:7a | Data_out:7a :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 865: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x2b data_out:0x9c full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 865: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:9c | Data_out:9c :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 875: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xbd data_out:0x9c full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 885: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xc6 data_out:0xf2 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 885: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:f2 | Data_out:f2 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 895: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xcd data_out:0xf2 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 905: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xa6 data_out:0x3d full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 905: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:3d | Data_out:3d :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 915: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x23 data_out:0x3d full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 925: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xdb data_out:0x3d full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 935: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xcd data_out:0x3d full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 945: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xac data_out:0x3d full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 955: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xa9 data_out:0x2b full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 955: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:2b | Data_out:2b :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 965: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xd2 data_out:0x23 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 965: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:23 | Data_out:23 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 975: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x67 data_out:0xa9 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 975: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:a9 | Data_out:a9 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 985: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xee data_out:0xd2 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 985: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:d2 | Data_out:d2 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 995: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x76 data_out:0xd2 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1005: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x92 data_out:0xd2 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1015: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x1a data_out:0xd2 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1025: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x64 data_out:0xd2 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1035: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x8 data_out:0xd2 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1045: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x5f data_out:0x67 full:1 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1045: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:67 | Data_out:67 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1055: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x13 data_out:0xee full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1055: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:ee | Data_out:ee :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1065: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x91 data_out:0x92 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1065: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:92 | Data_out:92 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1075: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xc8 data_out:0x8 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1075: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:08 | Data_out:08 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1085: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x5f data_out:0x8 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1095: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x18 data_out:0x8 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1105: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xd5 data_out:0x8 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1115: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xa6 data_out:0x8 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1125: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xae data_out:0x5f full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1125: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:5f | Data_out:5f :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1135: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xd data_out:0x5f full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1145: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x49 data_out:0x5f full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1155: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xb data_out:0x5f full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1165: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x19 data_out:0x5f full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1175: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xa4 data_out:0xae full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1175: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:ae | Data_out:ae :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1185: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x96 data_out:0x49 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1185: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:49 | Data_out:49 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1195: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x29 data_out:0x49 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1205: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xd9 data_out:0x49 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1215: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x9d data_out:0x8 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(120) @ 1215: uvm_test_top.env.scr [Scoreboard] MISSMATCH :::::::::: Exp_out:d9 | Data_out:08 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1225: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xff data_out:0x8 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1235: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x7f data_out:0x9d full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1235: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:9d | Data_out:9d :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1245: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xc4 data_out:0x7f full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1245: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:7f | Data_out:7f :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1255: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x76 data_out:0x7f full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1265: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x79 data_out:0xc4 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1265: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:c4 | Data_out:c4 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1275: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x6f data_out:0xc4 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1285: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xfb data_out:0xc4 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1295: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x72 data_out:0xc4 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1305: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x16 data_out:0xc4 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1315: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x34 data_out:0x72 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1315: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:72 | Data_out:72 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1325: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xf9 data_out:0x72 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1335: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xe8 data_out:0xf9 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1335: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:f9 | Data_out:f9 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1345: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x16 data_out:0xf9 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1355: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xfd data_out:0xf9 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1365: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xde data_out:0xf9 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1375: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xd data_out:0xf9 full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1385: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x96 data_out:0xe8 full:1 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1385: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:e8 | Data_out:e8 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1395: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x80 data_out:0x16 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1395: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:16 | Data_out:16 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1405: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xe7 data_out:0xfd full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1405: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:fd | Data_out:fd :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1415: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x7d data_out:0xde full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1415: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:de | Data_out:de :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1425: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x1c data_out:0xde full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1435: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x66 data_out:0xde full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1445: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x39 data_out:0xe7 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1445: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:e7 | Data_out:e7 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1455: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x78 data_out:0xe7 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1465: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x2e data_out:0xe7 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1475: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x85 data_out:0x2e full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1475: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:2e | Data_out:2e :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1485: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x24 data_out:0x85 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1485: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:85 | Data_out:85 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1495: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x55 data_out:0x85 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1505: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x3a data_out:0x85 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1515: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xbe data_out:0x85 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1525: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xfb data_out:0x85 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1535: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x5c data_out:0x85 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1545: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xab data_out:0x85 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1555: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xcb data_out:0xbe full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1555: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:be | Data_out:be :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1565: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x67 data_out:0x5c full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1565: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:5c | Data_out:5c :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1575: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x4f data_out:0x5c full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1585: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x61 data_out:0xcb full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1585: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:cb | Data_out:cb :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1595: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x6 data_out:0xcb full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1605: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x8d data_out:0xcb full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1615: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x56 data_out:0x67 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1615: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:67 | Data_out:67 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1625: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xfd data_out:0x67 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1635: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x9f data_out:0x67 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1645: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xe7 data_out:0x61 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1645: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:61 | Data_out:61 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1655: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x45 data_out:0x8d full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1655: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:8d | Data_out:8d :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1665: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x7d data_out:0xe7 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1665: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:e7 | Data_out:e7 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1675: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x11 data_out:0x45 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1675: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:45 | Data_out:45 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1685: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x2 data_out:0x45 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1695: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xe0 data_out:0x45 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1705: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xa data_out:0x45 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1715: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xc0 data_out:0x45 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1725: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x4c data_out:0x45 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1735: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x71 data_out:0x45 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1745: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x40 data_out:0xe0 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1745: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:e0 | Data_out:e0 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1755: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xe7 data_out:0xe0 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1765: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xa7 data_out:0xe0 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1775: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xb2 data_out:0xe0 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1785: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x5 data_out:0xe0 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1795: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x5d data_out:0xb2 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1795: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:b2 | Data_out:b2 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1805: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xca data_out:0xb2 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1815: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x9a data_out:0xb2 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1825: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x4e data_out:0xb2 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1835: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xf8 data_out:0xb2 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1845: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xa7 data_out:0xb2 full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1855: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x19 data_out:0xa7 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1855: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:a7 | Data_out:a7 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1865: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xbe data_out:0xa7 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1875: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xeb data_out:0xa7 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1885: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xc6 data_out:0x19 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1885: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:19 | Data_out:19 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1895: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xf data_out:0xbe full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1895: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:be | Data_out:be :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1905: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x8b data_out:0xbe full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 1915: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x84 data_out:0xbe full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1925: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xc2 data_out:0xbe full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1935: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x0 data_out:0xbe full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1945: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x3b data_out:0x8b full:1 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1945: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:8b | Data_out:8b :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1955: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x2e data_out:0x8b full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1965: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x84 data_out:0x8b full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1975: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x1f data_out:0x8b full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 1985: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xcc data_out:0x84 full:1 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1985: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:84 | Data_out:84 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 1995: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xf6 data_out:0xc2 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 1995: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:c2 | Data_out:c2 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 2005: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x8d data_out:0x0 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 2005: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:00 | Data_out:00 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 2015: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x48 data_out:0x2e full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 2015: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:2e | Data_out:2e :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 2025: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0xb6 data_out:0x2e full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 2035: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x6b data_out:0x2e full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 2045: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0x2e data_out:0x2e full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 2055: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x8b data_out:0x2e full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 2065: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x8c data_out:0x2e full:0 empty:1
+# UVM_INFO fifo_monitor.sv(34) @ 2075: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x86 data_out:0x2e full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 2085: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x73 data_out:0x2e full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 2095: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x60 data_out:0x8c full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 2095: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:8c | Data_out:8c :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 2105: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x1 data_out:0x86 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 2105: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:86 | Data_out:86 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 2115: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x37 data_out:0x86 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 2125: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xa5 data_out:0x86 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 2135: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0x93 data_out:0x73 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 2135: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:73 | Data_out:73 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 2145: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0x4e data_out:0x73 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 2155: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xc8 data_out:0x73 full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 2165: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x2f data_out:0xc8 full:1 empty:0
+# UVM_INFO fifo_scoreboard.sv(120) @ 2165: uvm_test_top.env.scr [Scoreboard] MISSMATCH :::::::::: Exp_out:60 | Data_out:c8 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 2175: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:0 data_in:0xf1 data_out:0xc8 full:0 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 2185: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:0 data_in:0xeb data_out:0xc8 full:1 empty:0
+# UVM_INFO fifo_monitor.sv(34) @ 2195: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:0 rd_en:1 data_in:0x92 data_out:0x37 full:1 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 2195: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:37 | Data_out:37 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 2205: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xb1 data_out:0x93 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 2205: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:93 | Data_out:93 :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 2215: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xb1 data_out:0x4e full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 2215: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:4e | Data_out:4e :::::::::: 
+# UVM_INFO fifo_monitor.sv(34) @ 2225: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xb1 data_out:0xf1 full:0 empty:0
+# UVM_INFO fifo_scoreboard.sv(114) @ 2225: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:f1 | Data_out:f1 :::::::::: 
 # UVM_INFO fifo_monitor.sv(34) @ 2235: uvm_test_top.env.agnt.mon [MON] Sampled -> rst:0 wr_en:1 rd_en:1 data_in:0xb1 data_out:0xb1 full:0 empty:0
 # UVM_INFO fifo_scoreboard.sv(114) @ 2235: uvm_test_top.env.scr [Scoreboard] MATCH :::::::::: Exp_out:b1 | Data_out:b1 :::::::::: 
 # UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 2245: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # UVM_INFO fifo_scoreboard.sv(142) @ 2245: uvm_test_top.env.scr [Scoreboard] 
 # =========================================
 #   FINAL SCOREBOARD SUMMARY
-#   TOTAL PASSED : 9
-#   TOTAL FAILED : 2
+#   TOTAL PASSED : 76
+#   TOTAL FAILED : 6
 #  TOTAL PASS_FLAG :437 
 #  TOTAL FAIL_FLAG :0 
 # =========================================
+# UVM_INFO fifo_subscriber.sv(107) @ 2245: uvm_test_top.env.sub [SUBSCRIBER] Functional Coverage = 94.23%
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :  243
+# UVM_INFO :  315
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
@@ -373,7 +447,8 @@
 # [MON]   224
 # [Questa UVM]     2
 # [RNTST]     1
-# [Scoreboard]    12
+# [SUBSCRIBER]     1
+# [Scoreboard]    83
 # [TEST3]     1
 # [TEST_DONE]     1
 # [TOPOLOGY]     1
@@ -381,5 +456,5 @@
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 2245 ns  Iteration: 54  Instance: /tb_top
 # Saving coverage database on exit...
-# End time: 18:15:20 on Aug 15,2026, Elapsed time: 0:00:03
+# End time: 20:30:12 on Aug 15,2026, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 28

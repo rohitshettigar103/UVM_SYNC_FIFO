@@ -24,7 +24,7 @@ class fifo_transaction extends uvm_sequence_item;
 
 	constraint c2{
 		soft wr_cs dist{ 1:=80,0:=10 };
-		soft rd_cs dist{ 1:=80,0:=10};
+		 soft rd_cs dist{ 1:=80,0:=10};
 	}
 
 

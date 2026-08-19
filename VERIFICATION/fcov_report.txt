@@ -1,0 +1,221 @@
+COVERGROUP COVERAGE:
+-----------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal    Status               
+                                                                                              
+-----------------------------------------------------------------------------------------------
+ TYPE /fifo_tst_pkg/fifo_subscriber/fifo_cg             86.5%        100    Uncovered            
+    covered/total bins:                                    38         50                      
+    missing/total bins:                                    12         50                      
+    % Hit:                                              76.0%        100                      
+    Coverpoint fifo_cg::WR_CS                          100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       112          1    Covered              
+        bin auto[1]                                       112          1    Covered              
+    Coverpoint fifo_cg::WR_EN                          100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       112          1    Covered              
+        bin auto[1]                                       112          1    Covered              
+    Coverpoint fifo_cg::RD_CS                          100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       111          1    Covered              
+        bin auto[1]                                       113          1    Covered              
+    Coverpoint fifo_cg::RD_EN                          100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       111          1    Covered              
+        bin auto[1]                                       113          1    Covered              
+    Coverpoint fifo_cg::FULL                           100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       123          1    Covered              
+        bin auto[1]                                       101          1    Covered              
+    Coverpoint fifo_cg::EMPTY                          100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       115          1    Covered              
+        bin auto[1]                                       109          1    Covered              
+    Coverpoint fifo_cg::RST                            100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       219          1    Covered              
+        bin auto[1]                                         5          1    Covered              
+    Coverpoint fifo_cg::DATA_IN                         80.0%        100    Uncovered            
+        covered/total bins:                                 4          5                      
+        missing/total bins:                                 1          5                      
+        % Hit:                                          80.0%        100                      
+        bin zero                                          112          1    Covered              
+        bin max_val                                         0          1    ZERO                 
+        bin low                                            30          1    Covered              
+        bin mid                                            59          1    Covered              
+        bin high                                           23          1    Covered              
+    Cross fifo_cg::WR_WHEN_FULL                         50.0%        100    Uncovered            
+        covered/total bins:                                 4          8                      
+        missing/total bins:                                 4          8                      
+        % Hit:                                          50.0%        100                      
+        bin <auto[0],auto[0],auto[0]>                     111          1    Covered              
+        bin <auto[0],auto[0],auto[1]>                       1          1    Covered              
+        bin <auto[1],auto[1],auto[0]>                      12          1    Covered              
+        bin write_attempt_while_full                      100          1    Covered              
+        bin <auto[1],auto[0],auto[0]>                       0          1    ZERO                 
+        bin <auto[0],auto[1],auto[0]>                       0          1    ZERO                 
+        bin <auto[1],auto[0],auto[1]>                       0          1    ZERO                 
+        bin <auto[0],auto[1],auto[1]>                       0          1    ZERO                 
+    Cross fifo_cg::RD_WHEN_EMPTY                        57.1%        100    Uncovered            
+        covered/total bins:                                 4          7                      
+        missing/total bins:                                 3          7                      
+        % Hit:                                          57.1%        100                      
+        bin <auto[0],auto[0],auto[0]>                     104          1    Covered              
+        bin <auto[1],auto[1],auto[0]>                      11          1    Covered              
+        bin <auto[0],auto[0],auto[1]>                       7          1    Covered              
+        bin read_attempt_while_empty                      102          1    Covered              
+        bin rd_cs_asserted_en_low                           0          1    ZERO                 
+        bin <auto[0],auto[1],auto[0]>                       0          1    ZERO                 
+        bin <auto[0],auto[1],auto[1]>                       0          1    ZERO                 
+    Cross fifo_cg::RD_WR_INDEPENDENCE                  100.0%        100    Covered              
+        covered/total bins:                                 4          4                      
+        missing/total bins:                                 0          4                      
+        % Hit:                                         100.0%        100                      
+        bin read_only                                     105          1    Covered              
+        bin write_only                                    104          1    Covered              
+        bin both                                            8          1    Covered              
+        bin neither                                         7          1    Covered              
+    Cross fifo_cg::FULL_EMPTY_CROSS                     75.0%        100    Uncovered            
+        covered/total bins:                                 3          4                      
+        missing/total bins:                                 1          4                      
+        % Hit:                                          75.0%        100                      
+        bin <auto[0],auto[0]>                              14          1    Covered              
+        bin full_and_not_empty                            101          1    Covered              
+        bin empty_and_not_full                            109          1    Covered              
+        bin <auto[1],auto[1]>                               0          1    ZERO                 
+    Cross fifo_cg::RST_CROSS                            62.5%        100    Uncovered            
+        covered/total bins:                                 5          8                      
+        missing/total bins:                                 3          8                      
+        % Hit:                                          62.5%        100                      
+        bin <auto[0],auto[0],auto[0]>                       2          1    Covered              
+        bin <auto[1],auto[0],auto[0]>                       5          1    Covered              
+        bin <auto[0],auto[1],auto[0]>                     104          1    Covered              
+        bin <auto[0],auto[0],auto[1]>                     105          1    Covered              
+        bin <auto[0],auto[1],auto[1]>                       8          1    Covered              
+        bin <auto[1],auto[1],auto[0]>                       0          1    ZERO                 
+        bin <auto[1],auto[0],auto[1]>                       0          1    ZERO                 
+        bin <auto[1],auto[1],auto[1]>                       0          1    ZERO                 
+ CLASS fifo_subscriber
+ Covergroup instance \/fifo_tst_pkg::fifo_subscriber::fifo_cg  
+                                                        86.5%        100    Uncovered            
+    covered/total bins:                                    38         50                      
+    missing/total bins:                                    12         50                      
+    % Hit:                                              76.0%        100                      
+    Coverpoint WR_CS                                   100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       112          1    Covered              
+        bin auto[1]                                       112          1    Covered              
+    Coverpoint WR_EN                                   100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       112          1    Covered              
+        bin auto[1]                                       112          1    Covered              
+    Coverpoint RD_CS                                   100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       111          1    Covered              
+        bin auto[1]                                       113          1    Covered              
+    Coverpoint RD_EN                                   100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       111          1    Covered              
+        bin auto[1]                                       113          1    Covered              
+    Coverpoint FULL                                    100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       123          1    Covered              
+        bin auto[1]                                       101          1    Covered              
+    Coverpoint EMPTY                                   100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       115          1    Covered              
+        bin auto[1]                                       109          1    Covered              
+    Coverpoint RST                                     100.0%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                         100.0%        100                      
+        bin auto[0]                                       219          1    Covered              
+        bin auto[1]                                         5          1    Covered              
+    Coverpoint DATA_IN                                  80.0%        100    Uncovered            
+        covered/total bins:                                 4          5                      
+        missing/total bins:                                 1          5                      
+        % Hit:                                          80.0%        100                      
+        bin zero                                          112          1    Covered              
+        bin max_val                                         0          1    ZERO                 
+        bin low                                            30          1    Covered              
+        bin mid                                            59          1    Covered              
+        bin high                                           23          1    Covered              
+    Cross WR_WHEN_FULL                                  50.0%        100    Uncovered            
+        covered/total bins:                                 4          8                      
+        missing/total bins:                                 4          8                      
+        % Hit:                                          50.0%        100                      
+        bin <auto[0],auto[0],auto[0]>                     111          1    Covered              
+        bin <auto[0],auto[0],auto[1]>                       1          1    Covered              
+        bin <auto[1],auto[1],auto[0]>                      12          1    Covered              
+        bin write_attempt_while_full                      100          1    Covered              
+        bin <auto[1],auto[0],auto[0]>                       0          1    ZERO                 
+        bin <auto[0],auto[1],auto[0]>                       0          1    ZERO                 
+        bin <auto[1],auto[0],auto[1]>                       0          1    ZERO                 
+        bin <auto[0],auto[1],auto[1]>                       0          1    ZERO                 
+    Cross RD_WHEN_EMPTY                                 57.1%        100    Uncovered            
+        covered/total bins:                                 4          7                      
+        missing/total bins:                                 3          7                      
+        % Hit:                                          57.1%        100                      
+        bin <auto[0],auto[0],auto[0]>                     104          1    Covered              
+        bin <auto[1],auto[1],auto[0]>                      11          1    Covered              
+        bin <auto[0],auto[0],auto[1]>                       7          1    Covered              
+        bin read_attempt_while_empty                      102          1    Covered              
+        bin rd_cs_asserted_en_low                           0          1    ZERO                 
+        bin <auto[0],auto[1],auto[0]>                       0          1    ZERO                 
+        bin <auto[0],auto[1],auto[1]>                       0          1    ZERO                 
+    Cross RD_WR_INDEPENDENCE                           100.0%        100    Covered              
+        covered/total bins:                                 4          4                      
+        missing/total bins:                                 0          4                      
+        % Hit:                                         100.0%        100                      
+        bin read_only                                     105          1    Covered              
+        bin write_only                                    104          1    Covered              
+        bin both                                            8          1    Covered              
+        bin neither                                         7          1    Covered              
+    Cross FULL_EMPTY_CROSS                              75.0%        100    Uncovered            
+        covered/total bins:                                 3          4                      
+        missing/total bins:                                 1          4                      
+        % Hit:                                          75.0%        100                      
+        bin <auto[0],auto[0]>                              14          1    Covered              
+        bin full_and_not_empty                            101          1    Covered              
+        bin empty_and_not_full                            109          1    Covered              
+        bin <auto[1],auto[1]>                               0          1    ZERO                 
+    Cross RST_CROSS                                     62.5%        100    Uncovered            
+        covered/total bins:                                 5          8                      
+        missing/total bins:                                 3          8                      
+        % Hit:                                          62.5%        100                      
+        bin <auto[0],auto[0],auto[0]>                       2          1    Covered              
+        bin <auto[1],auto[0],auto[0]>                       5          1    Covered              
+        bin <auto[0],auto[1],auto[0]>                     104          1    Covered              
+        bin <auto[0],auto[0],auto[1]>                     105          1    Covered              
+        bin <auto[0],auto[1],auto[1]>                       8          1    Covered              
+        bin <auto[1],auto[1],auto[0]>                       0          1    ZERO                 
+        bin <auto[1],auto[0],auto[1]>                       0          1    ZERO                 
+        bin <auto[1],auto[1],auto[1]>                       0          1    ZERO                 
+
+TOTAL COVERGROUP COVERAGE: 86.5%  COVERGROUP TYPES: 1

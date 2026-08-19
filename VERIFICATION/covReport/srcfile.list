@@ -1,6 +1,7 @@
 fifo_design.sv
 fifo_interface.sv
 fifo_sequence.sv
+fifo_subscriber.sv
 fifo_top.sv
 fifo_tst_pkg.sv
 ram_fifo.sv
